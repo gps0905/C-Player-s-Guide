@@ -40,6 +40,7 @@ public class Challenge2
             case > 0 when y < 0:
                 Console.WriteLine(msg + "SE");
                 break;
+            
         }
     }
 }
