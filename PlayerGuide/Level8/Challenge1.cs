@@ -1,4 +1,4 @@
-namespace PlayerGuide.Chapter8;
+namespace PlayerGuide.Level8;
 
 public class Challenge1
 {
