@@ -4,10 +4,43 @@ public class Challenge1
 {
     public static void Run()
     {
+        var arrowhead = GetArrowhead();
+        var fletchling = GetFletching();
+        var length = GetLength();
+        
+        Arrow arrow = new Arrow(arrowhead, fletchling, length);
+        Console.WriteLine(arrow.GetCost());
+
+        
+        
+    }
+
+    private static Arrowhead GetArrowhead()
+    {
         Console.WriteLine("Choose an arrowhead type:");
         var arrowhead =  Console.ReadLine();
-        Console.WriteLine("Choose a fletchling type:");
-        var fletchling = Console.ReadLine();
+        return arrowhead switch
+        {
+            "Steel" => Arrowhead.Steel,
+            "Wood" => Arrowhead.Wood,
+            "Obsidian" => Arrowhead.Obsidian
+        };
+    }
+
+    private static Fletching GetFletching()
+    {
+        Console.WriteLine("Choose a fletching type:");
+        var fletching = Console.ReadLine();
+        return fletching switch
+        {
+            "Plastic" => Fletching.Plastic,
+            "Turkey" => Fletching.Turkey,
+            "Goose" => Fletching.Goose
+        };
+    }
+    
+    private static int GetLength()
+    {
         var length = 0;
         while (length < 60 || length > 100)
         {
@@ -15,28 +48,15 @@ public class Challenge1
             length = Convert.ToInt32(Console.ReadLine());
         }
 
-        Arrowhead chosenArrowhead = arrowhead switch
-        {
-            "Steel" => Arrowhead.Steel,
-            "Wood" => Arrowhead.Wood,
-            "Obsidian" => Arrowhead.Obsidian,
-            _ => Arrowhead.Steel
-        };
+        return length;
 
-        soup.Item2 = ingredient switch
-        {
-            "Mushrooms" => Ingredient.Mushrooms,
-            "Chicken" => Ingredient.Chicken,
-            "Carrots" => Ingredient.Carrots,
-            "Potatoes" => Ingredient.Potatoes,
-            _ => soup.Item2
-        };
-        
-        
-        
-        
-        
     }
+    
+    
+    
+    }
+    
+    
 
     class Arrow
     {
@@ -93,4 +113,3 @@ public class Challenge1
     enum Fletching { Plastic, Turkey, Goose}
     
     
-}
